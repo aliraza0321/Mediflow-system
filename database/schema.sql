@@ -1,0 +1,2 @@
+-- Hospital Management System Database Schema
+-- Tables will be added here
