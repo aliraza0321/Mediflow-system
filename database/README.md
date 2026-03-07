@@ -1,1 +1,1 @@
-
+Added database schema file.
