@@ -1,2 +1,3 @@
--- Hospital Management System Database Schema
--- Tables will be added here
+--I will be responsible for delevoping and maintaining SQL queries.
+--Including insertion, updation, deletion and Joins 
+--On the system
