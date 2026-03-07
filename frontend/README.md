@@ -1,2 +1,1 @@
-// back end will be implemented here using
-// node js
+Code for front end will be placed in this folder.
