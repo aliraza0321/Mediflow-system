@@ -4,10 +4,10 @@
 This project is a Hospital Patient Management System developed using React, Node.js and SQL. The system manages patient records, hospital staff, appointments, medical information.
 
 # Authors
-Ali Raza – Team Lead + backend developer
-Abdul Ahad – Frontend Developer  
-Abdul Rafay – Backend Developer  
-Irtaza Hussain– Database 
+Ali Raza – Team Lead + backend developer.
+Abdul Ahad – Frontend Developer.  
+Abdul Rafay – Backend Developer.  
+Irtaza Hussain– Database Queries. 
 
 # Folder Hierarchy
 frontend/ – React frontend application  
