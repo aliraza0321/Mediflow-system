@@ -78,6 +78,7 @@ hospital-patient-management-system/
 │
 ├── database/
 │   └── schema.sql
+|   └── queries.sql         
 │
 └── README.md
 ```
