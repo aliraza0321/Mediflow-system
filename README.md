@@ -1,277 +1,282 @@
- '''
- # Hospital Patient Management System
+ #  Hospital Patient Management System
 
 A web-based application designed to manage hospital operations including patient records, staff management, appointments, and treatments.
 
 ---
 
-# Project Overview
+##  Project Overview
 
-The Hospital Patient Management System is a full-stack web application developed to streamline and digitize hospital operations. It allows efficient management of patient records, appointment scheduling, treatment processes, and billing within a centralized system.
+The **Hospital Patient Management System** is a full-stack web application developed to streamline and digitize hospital operations. It allows efficient management of:
 
-The target users of this system include hospital staff such as doctors, nurses, administrators, and receptionists, as well as patients. This application solves the problem of manual record-keeping, reduces human errors, and ensures secure and organized data management.
+* Patient records
+* Appointment scheduling
+* Treatment processes
+* Billing system
 
-Key features include patient registration, appointment booking, staff availability checking, medical record handling, and report generation. The system improves communication between different roles and enhances overall hospital efficiency.
+###  Target Users
+
+* Doctors
+* Nurses
+* Administrators
+* Receptionists
+* Patients
+
+###  Purpose
+
+* Replace manual record-keeping
+* Reduce human errors
+* Ensure secure & organized data management
 
 ---
 
-# Authors
+##  Key Features
 
-
-Ali Raza (Team Lead)| Front-end development| https://github.com/aliraza0321
-
-Abdul Rafay |Backend Development| https://github.com/rafay35349
-
-Abdul Ahad | API Integration| https://github.com/ahad5616107-web
-
-Irtaza Hussain | Testing & Documentation| https://github.com/IrtazaHussain11223
+* Patient Registration
+* Appointment Booking
+* Staff Availability Checking
+* Medical Record Management
+* Report Generation
 
 ---
 
-# Folder Hierarchy
+##  Authors
 
+* **Ali Raza (Team Lead)** – Frontend Development
+  🔗 https://github.com/aliraza0321
+
+* **Abdul Rafay** – Backend Development
+  🔗 https://github.com/rafay35349
+
+* **Abdul Ahad** – API Integration
+  🔗 https://github.com/ahad5616107-web
+
+* **Irtaza Hussain** – Testing & Documentation
+  🔗 https://github.com/IrtazaHussain11223
+
+---
+
+##  Folder Hierarchy
+
+```
 hospital-patient-management-system/
 ├── frontend/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── services/
-│ │ └── App.jsx
-│ └── package.json
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── App.jsx
+│   └── package.json
 │
 ├── backend/
-│ ├── src/
-│ │ ├── controllers/
-│ │ ├── models/
-│ │ ├── routes/
-│ │ ├── services/
-│ │ └── config/
-│ └── package.json
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   └── config/
+│   └── package.json
 │
 ├── database/
-│ └── schema.sql
+│   └── schema.sql
 │
 └── README.md
+```
 
 ---
 
-# Tech Stack
+##  Tech Stack
 
-Frontend
+###  Frontend
 
-Technology | Purpose
-React.js | User Interface Development
-Axios| HTTP Requests
-Tailwind CSS| Styling
+| Technology   | Purpose        |
+| ------------ | -------------- |
+| React.js     | UI Development |
+| Axios        | HTTP Requests  |
+| Tailwind CSS | Styling        |
 
----
+###  Backend
 
-# Backend
-
-Technology | Purpose
-Node.js| Runtime Environment
-Express.js| Backend Framework
-MySQL| Database
-
----
-
-# APIs & Services
-
-Service | Purpose
-REST API| Communication between frontend and backend
+| Technology | Purpose             |
+| ---------- | ------------------- |
+| Node.js    | Runtime Environment |
+| Express.js | Backend Framework   |
+| MySQL      | Database            |
 
 ---
 
-# Installation and Setup Instructions
+##  APIs & Services
 
-Prerequisites
-
-- Node.js (v18 or above)
-- MySQL
-- Git
+| Service  | Purpose                          |
+| -------- | -------------------------------- |
+| REST API | Frontend ↔ Backend Communication |
 
 ---
 
-Step 1: Clone the Repository
+##  Installation & Setup
 
+###  Prerequisites
+
+* Node.js (v18 or above)
+* MySQL
+* Git
+
+---
+
+### 1️ Clone Repository
+
+```bash
 git clone https://github.com/aliraza0321/hospital-patient-management-system.git
 cd hospital-patient-management-system
+```
 
 ---
 
-Step 2: Install Dependencies
+### 2️ Install Dependencies
 
+```bash
 cd backend
 npm install
 
 cd ../frontend
 npm install
+```
 
 ---
 
-# Environment Configuration
+###  Environment Configuration
 
-Create a ".env" file in the backend directory:
+Create `.env` file in **backend** folder:
 
+```
 PORT=3000
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=yourpassword
 DB_NAME=hospital_db
+```
 
 ---
 
-# How to Run the Project
+##  Run the Project
 
-Terminal 1 (Backend)
+###  Backend
 
+```bash
 cd backend
 npm run dev
+```
 
-Backend will run at: http://localhost:3000
+ Runs on: http://localhost:3000
 
 ---
 
-Terminal 2 (Frontend)
+###  Frontend
 
+```bash
 cd frontend
 npm start
+```
 
-Frontend will run at: http://localhost:5173
-
----
-
-# Features
-
-Core Features
-
-- Patient Registration and Record Management
-- Appointment Booking System
-- Staff Management
-- Medicine and Treatment Handling
-- Billing System
+ Runs on: http://localhost:5173
 
 ---
 
-# Implemented Features
+##  Features
 
-Feature | Status| Description
-Login System | In Progress | User authentication
-Patient Management |  In Progress| Manage patient data
-Appointment System | In Progress| Booking and scheduling
-Billing System |  Planned| Payment handling
+### Core Features
 
----
-
-# Limitations
-
-Current Limitations
-
-1. No real-time notifications
-2. Basic user interface
+* Patient Management
+* Appointment Booking
+* Staff Management
+* Treatment Handling
+* Billing System
 
 ---
 
-Known Issues
+###  Implementation Status
 
-- Some APIs may respond slowly
-- UI responsiveness needs improvement
-
----
-
-# SOLID Principles Implemented
-
-# Single Responsibility Principle (SRP)
-
-Each class handles a single responsibility.
-
-class PatientService {
-  createPatient() {}
-  getPatient() {}
-}
+| Feature        | Status      | Description         |
+| -------------- | ----------- | ------------------- |
+| Login System   | In Progress | Authentication      |
+| Patient System | In Progress | Manage patient data |
+| Appointment    | In Progress | Scheduling          |
+| Billing System | Planned     | Payments            |
 
 ---
 
-# Open/Closed Principle (OCP)
+##  Limitations
 
-class Payment {
-  process() {}
-}
+### Current Limitations
 
-class CashPayment extends Payment {}
-class CardPayment extends Payment {}
+* No real-time notifications
+* Basic UI
 
----
+### Known Issues
 
-# Liskov Substitution Principle (LSP)
-
-Subclasses can replace their parent class without affecting functionality.
+* Slow API responses
+* UI responsiveness needs improvement
 
 ---
 
-# Interface Segregation Principle (ISP)
+##  SOLID Principles
 
-Small, specific interfaces are used instead of large ones.
-
----
- 
-# Dependency Inversion Principle (DIP)
-
-High-level modules depend on abstractions, not concrete implementations.
+* **SRP** → Each class has one responsibility
+* **OCP** → Extend without modifying
+* **LSP** → Subclasses replace parent safely
+* **ISP** → Small interfaces
+* **DIP** → Depend on abstractions
 
 ---
 
-# Design Patterns Implemented
+##  Design Patterns
 
-# MVC Pattern
+### MVC Pattern
 
-- Category: Architectural
-- Purpose: Separates concerns (Model, View, Controller)
+* Separates Model, View, Controller
 
----
+### Repository Pattern
 
-# Repository Pattern
-
-- Category: Structural
-- Purpose: Abstracts database operations
+* Abstracts database operations
 
 ---
 
-# API Documentation
+##  API Documentation
 
-Endpoints
+### Endpoints
 
-Method | Endpoint| Description
-GET | /api/patients| Get all patients
-POST | /api/patients| Add new patient
-PUT | /api/patients/:id| Update patient
-DELETE | /api/patients/:id| Delete patient
+| Method | Endpoint          | Description      |
+| ------ | ----------------- | ---------------- |
+| GET    | /api/patients     | Get all patients |
+| POST   | /api/patients     | Add patient      |
+| PUT    | /api/patients/:id | Update patient   |
+| DELETE | /api/patients/:id | Delete patient   |
 
 ---
 
-Example Request
+### Example Request
 
+```json
 POST /api/patients
 
 {
   "name": "Ali",
   "age": 22
 }
+```
 
 ---
 
-# Future Improvements
+##  Future Improvements
 
-- Add real-time notifications
-- Improve UI/UX
-- Implement role-based authentication
-
----
-
-# Resources
-
-- https://react.dev
-- https://nodejs.org
+* Real-time notifications
+* Better UI/UX
+* Role-based authentication
 
 ---
-'''
+
+##  Resources
+
+* https://react.dev
+* https://nodejs.org
+
+---
