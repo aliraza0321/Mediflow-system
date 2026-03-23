@@ -16,17 +16,21 @@ Key features include patient registration, appointment booking, staff availabili
 
 # Authors
 
-Name| Role| Contact
+
 Ali Raza (Team Lead)| Front-end development| https://github.com/aliraza0321
+
 Abdul Rafay |Backend Development| [GitHub/Email]
+
 Abdul Ahad| API Integration| [GitHub/Email]
+
 Irtaza Hussain | Testing & Documentation| [GitHub/Email]
 
 ---
 
 # Folder Hierarchy
 
-hospital-patient-management-system/
+hospital-patient-management-syste
+/
 ├── frontend/
 │ ├── src/
 │ │ ├── components/
@@ -62,7 +66,7 @@ Tailwind CSS| Styling
 
 ---
 
-#Backend
+# Backend
 
 Technology| Purpose
 Node.js| Runtime Environment
@@ -71,7 +75,7 @@ MySQL| Database
 
 ---
 
-#APIs & Services
+# APIs & Services
 
 Service| Purpose
 REST API| Communication between frontend and backend
@@ -256,7 +260,7 @@ POST /api/patients
 
 ---
 
-#Future Improvements
+# Future Improvements
 
 - Add real-time notifications
 - Improve UI/UX
@@ -264,7 +268,7 @@ POST /api/patients
 
 ---
 
-#Resources
+# Resources
 
 - https://react.dev
 - https://nodejs.org
