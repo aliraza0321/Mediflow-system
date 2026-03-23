@@ -50,7 +50,7 @@ The **Hospital Patient Management System** is a full-stack web application devel
 * **Abdul Ahad** – API Integration
   🔗 https://github.com/ahad5616107-web
 
-* **Irtaza Hussain** – Testing & Documentation
+* **Irtaza Hussain** – Database & Documentation
   🔗 https://github.com/IrtazaHussain11223
 
 ---
