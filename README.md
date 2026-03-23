@@ -102,6 +102,19 @@ hospital-patient-management-system/
 | Express.js | Backend Framework   |
 | MySQL      | Database            |
 
+## Database Design
+| Component    | Description                                      |
+|-------------|--------------------------------------------------|
+| Patients    | Stores patient information and records           |
+| Staff       | Stores hospital staff data                       |
+| Appointments| Manages scheduling between patients and doctors  |
+| Admissions  | Tracks patient admissions and discharges         |
+| Wards       | Manages room and bed allocation                  |
+| LabTests    | Stores test requests                             |
+| LabReports  | Stores test results                              |
+| Billing     | Handles payments and invoices                    |
+| Inventory   | Tracks medicine stock                            |
+
 ---
 
 ##  APIs & Services
