@@ -1,3 +1,4 @@
+ '''
  # Hospital Patient Management System
 
 A web-based application designed to manage hospital operations including patient records, staff management, appointments, and treatments.
@@ -273,3 +274,4 @@ POST /api/patients
 - https://nodejs.org
 
 ---
+'''
