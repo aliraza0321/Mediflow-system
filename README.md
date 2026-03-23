@@ -19,18 +19,17 @@ Key features include patient registration, appointment booking, staff availabili
 
 Ali Raza (Team Lead)| Front-end development| https://github.com/aliraza0321
 
-Abdul Rafay |Backend Development| [GitHub/Email]
+Abdul Rafay |Backend Development| https://github.com/rafay35349
 
-Abdul Ahad| API Integration| [GitHub/Email]
+Abdul Ahad | API Integration| https://github.com/ahad5616107-web
 
-Irtaza Hussain | Testing & Documentation| [GitHub/Email]
+Irtaza Hussain | Testing & Documentation| https://github.com/IrtazaHussain11223
 
 ---
 
 # Folder Hierarchy
 
-hospital-patient-management-syste
-/
+hospital-patient-management-system/
 ├── frontend/
 │ ├── src/
 │ │ ├── components/
@@ -59,8 +58,8 @@ hospital-patient-management-syste
 
 Frontend
 
-Technology| Purpose
-React.js| User Interface Development
+Technology | Purpose
+React.js | User Interface Development
 Axios| HTTP Requests
 Tailwind CSS| Styling
 
@@ -68,7 +67,7 @@ Tailwind CSS| Styling
 
 # Backend
 
-Technology| Purpose
+Technology | Purpose
 Node.js| Runtime Environment
 Express.js| Backend Framework
 MySQL| Database
@@ -77,7 +76,7 @@ MySQL| Database
 
 # APIs & Services
 
-Service| Purpose
+Service | Purpose
 REST API| Communication between frontend and backend
 
 ---
@@ -155,11 +154,11 @@ Core Features
 
 # Implemented Features
 
-Feature| Status| Description
-Login System| In Progress | User authentication
-Patient Management|  In Progress| Manage patient data
-Appointment System| In Progress| Booking and scheduling
-Billing System|  Planned| Payment handling
+Feature | Status| Description
+Login System | In Progress | User authentication
+Patient Management |  In Progress| Manage patient data
+Appointment System | In Progress| Booking and scheduling
+Billing System |  Planned| Payment handling
 
 ---
 
@@ -241,11 +240,11 @@ High-level modules depend on abstractions, not concrete implementations.
 
 Endpoints
 
-Method| Endpoint| Description
-GET| /api/patients| Get all patients
-POST| /api/patients| Add new patient
-PUT| /api/patients/:id| Update patient
-DELETE| /api/patients/:id| Delete patient
+Method | Endpoint| Description
+GET | /api/patients| Get all patients
+POST | /api/patients| Add new patient
+PUT | /api/patients/:id| Update patient
+DELETE | /api/patients/:id| Delete patient
 
 ---
 
