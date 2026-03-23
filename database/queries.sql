@@ -1,1 +1,2 @@
-
+Contains commonly used SQL queries for performing database operations such as data retrieval, insertion, updation, deletion, and JOIN operations. 
+It includes queries that support core system functionalities like patient management, appointment scheduling, billing, and report generation
