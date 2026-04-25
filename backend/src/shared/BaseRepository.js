@@ -4,14 +4,14 @@ import memoryStore, { nextId } from "./memoryStore.js";
 
 class BaseRepository {
   constructor(tableName) {
-    // This class is meant to be extended by feature-specific repositories.
+    // this base class is reused by all repositories
     if (new.target === BaseRepository) {
       throw new Error("BaseRepository is abstract and cannot be instantiated directly");
     }
 
     this.tableName = tableName;
   }
-
+// use sql when the app is not running in memory mode
   async findAll() {
     if (env.storageMode === "memory") {
       return [...memoryStore[this.tableName]].reverse();
@@ -43,7 +43,7 @@ class BaseRepository {
 
     return query(`DELETE FROM ${this.tableName} WHERE id = ?`, [id]);
   }
-
+// create a fake record for demo mode without a real database
   createMemoryRecord(payload) {
     const record = {
       id: nextId(this.tableName),

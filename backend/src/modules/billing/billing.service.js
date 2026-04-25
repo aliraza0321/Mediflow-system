@@ -44,7 +44,7 @@ class BillingService extends BaseService {
     const strategy = paymentStrategyFactory(payload.paymentMethod);
 
     // Polymorphism happens here:
-    // each payment strategy decides how payment should be processed.
+    // each payment method can handle the bill differently
     const paymentResult = strategy.processPayment(bill.amount);
 
     const payment = await this.repository.createPayment({
@@ -55,7 +55,7 @@ class BillingService extends BaseService {
     const newBillStatus =
       paymentResult.paymentStatus === "paid" ? "paid" : "pending";
 
-    // After creating a payment record, we also update the bill status.
+       // update the bill after saving the payment
     const updatedBill = await this.repository.updateBillStatus(billId, newBillStatus);
 
     return {

@@ -2,7 +2,7 @@ import ApiError from "../utils/ApiError.js";
 
 class BaseService {
   constructor(repository, entityName) {
-    // Services hold business logic. Repositories only handle database queries.
+    // services handle logic while repositories handle data access
     if (new.target === BaseService) {
       throw new Error("BaseService is abstract and cannot be instantiated directly");
     }
@@ -18,7 +18,7 @@ class BaseService {
   async getById(id) {
     const entity = await this.repository.findById(id);
 
-    // Throwing here keeps controllers small and responses consistent.
+     // return a clear error if the record does not exist
     if (!entity) {
       throw new ApiError(404, `${this.entityName} not found`);
     }
