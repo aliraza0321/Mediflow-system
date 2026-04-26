@@ -18,9 +18,9 @@
 --Normalization will be applied to reduce redundancy.
 --Joins will be used to manage relationships and retrieve combined data across modules.
 
-CREATE TABLE users
-(
-    id INT,
+--Table 1 users
+CREATE TABLE users (
+    id INT IDENTITY(1,1),
     full_name VARCHAR(100),
     email VARCHAR(100),
     password VARCHAR(255),
@@ -28,9 +28,9 @@ CREATE TABLE users
     phone_number VARCHAR(20),
     created_at DATETIME DEFAULT GETDATE()
 );
-CREATE TABLE patients
-(
-    id INT ,
+--Table 2 patients
+CREATE TABLE patients (
+    id INT IDENTITY(1,1),
     user_id INT,
     gender VARCHAR(10),
     date_of_birth DATE,
@@ -40,29 +40,29 @@ CREATE TABLE patients
     emergency_contact_phone VARCHAR(20),
     created_at DATETIME DEFAULT GETDATE()
 );
-CREATE TABLE doctors 
-(
-    id INT ,
+--Table 3 doctors
+CREATE TABLE doctors (
+    id INT IDENTITY(1,1),
     user_id INT,
     specialization VARCHAR(100),
     license_number VARCHAR(50),
     availability_notes TEXT,
     created_at DATETIME DEFAULT GETDATE()
 );
-CREATE TABLE appointments 
-(
-    id INT,
+--Table 4 appointments
+CREATE TABLE appointments (
+    id INT IDENTITY(1,1),
     patient_id INT,
     doctor_id INT,
     appointment_date DATE,
     appointment_time TIME,
     status VARCHAR(20),
     reason TEXT,
-   created_at DATETIME DEFAULT GETDATE()
+    created_at DATETIME DEFAULT GETDATE()
 );
-CREATE TABLE medical_records
-(
-    id INT,
+--Table 5 medical records
+CREATE TABLE medical_records (
+    id INT IDENTITY(1,1),
     patient_id INT,
     doctor_id INT,
     diagnosis TEXT,
@@ -71,9 +71,9 @@ CREATE TABLE medical_records
     visit_date DATE,
     created_at DATETIME DEFAULT GETDATE()
 );
-CREATE TABLE bills
-(
-    id INT,
+--Table 6 bills
+CREATE TABLE bills (
+    id INT IDENTITY(1,1),
     patient_id INT,
     appointment_id INT,
     amount DECIMAL(10,2),
@@ -81,9 +81,9 @@ CREATE TABLE bills
     description TEXT,
     created_at DATETIME DEFAULT GETDATE()
 );
-CREATE TABLE payments 
-(
-    id INT,
+--Table 7 payments
+CREATE TABLE payments (
+    id INT IDENTITY(1,1),
     bill_id INT,
     amount_paid DECIMAL(10,2),
     payment_method VARCHAR(20),
