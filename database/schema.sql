@@ -104,3 +104,12 @@ ALTER TABLE payments ADD CONSTRAINT pk_payments PRIMARY KEY (id);
 
 
 
+-- Adding constraints unique
+ALTER TABLE users ADD CONSTRAINT uq_users_email UNIQUE (email);
+ALTER TABLE doctors ADD CONSTRAINT uq_doctors_license UNIQUE (license_number);
+ALTER TABLE patients ADD CONSTRAINT uq_patients_user UNIQUE (user_id);
+ALTER TABLE doctors ADD CONSTRAINT uq_doctors_user UNIQUE (user_id);
+
+
+
+
