@@ -147,3 +147,10 @@ ALTER TABLE payments
 ADD CONSTRAINT fk_payments_bill
 FOREIGN KEY (bill_id) REFERENCES bills(id);
 
+-- Index
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_appointments_patient ON appointments(patient_id);
+CREATE INDEX idx_appointments_doctor ON appointments(doctor_id);
+CREATE INDEX idx_appointments_date ON appointments(appointment_date);
+CREATE INDEX idx_medical_patient ON medical_records(patient_id);
+CREATE INDEX idx_bills_patient ON bills(patient_id);
