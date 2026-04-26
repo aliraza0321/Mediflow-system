@@ -109,7 +109,39 @@ ALTER TABLE users ADD CONSTRAINT uq_users_email UNIQUE (email);
 ALTER TABLE doctors ADD CONSTRAINT uq_doctors_license UNIQUE (license_number);
 ALTER TABLE patients ADD CONSTRAINT uq_patients_user UNIQUE (user_id);
 ALTER TABLE doctors ADD CONSTRAINT uq_doctors_user UNIQUE (user_id);
+ -- Adding foreign key
+--Adding foreign keys
+ALTER TABLE patients
+ADD CONSTRAINT fk_patients_users
+FOREIGN KEY (user_id) REFERENCES users(id);
 
+ALTER TABLE doctors
+ADD CONSTRAINT fk_doctors_users
+FOREIGN KEY (user_id) REFERENCES users(id);
+
+ALTER TABLE appointments
+ADD CONSTRAINT fk_appointments_patient
+FOREIGN KEY (patient_id) REFERENCES patients(id);
+
+ALTER TABLE appointments
+ADD CONSTRAINT fk_appointments_doctor
+FOREIGN KEY (doctor_id) REFERENCES doctors(id);
+
+ALTER TABLE medical_records
+ADD CONSTRAINT fk_records_patient
+FOREIGN KEY (patient_id) REFERENCES patients(id);
+
+ALTER TABLE medical_records
+ADD CONSTRAINT fk_records_doctor
+FOREIGN KEY (doctor_id) REFERENCES doctors(id);
+
+ALTER TABLE bills
+ADD CONSTRAINT fk_bills_patient
+FOREIGN KEY (patient_id) REFERENCES patients(id);
+
+ALTER TABLE bills
+ADD CONSTRAINT fk_bills_appointment
+FOREIGN KEY (appointment_id) REFERENCES appointments(id);
 
 
 
