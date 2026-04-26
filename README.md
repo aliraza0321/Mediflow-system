@@ -1,4 +1,4 @@
- #  Hospital Patient Management System
+ #  MediFlow System
 
 A web-based application designed to manage hospital operations including patient records, staff management, appointments, and treatments.
 
@@ -6,7 +6,7 @@ A web-based application designed to manage hospital operations including patient
 
 ##  Project Overview
 
-The **Hospital Patient Management System** is a full-stack web application developed to streamline and digitize hospital operations. It allows efficient management of:
+The **MediFlow System** is a full-stack web application developed to streamline and digitize hospital operations. It allows efficient management of:
 
 * Patient records
 * Appointment scheduling
