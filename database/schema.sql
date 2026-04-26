@@ -88,5 +88,19 @@ CREATE TABLE payments (
     amount_paid DECIMAL(10,2),
     payment_method VARCHAR(20),
     payment_status VARCHAR(20),
-    created_at DATETIME DEFAULT GETDATE()
+    created_at DATETIME DEFAULT
+    GETDATE()
 );
+
+
+-- Adding primary keys
+ALTER TABLE users ADD CONSTRAINT pk_users PRIMARY KEY (id);
+ALTER TABLE patients ADD CONSTRAINT pk_patients PRIMARY KEY (id);
+ALTER TABLE doctors ADD CONSTRAINT pk_doctors PRIMARY KEY (id);
+ALTER TABLE appointments ADD CONSTRAINT pk_appointments PRIMARY KEY (id);
+ALTER TABLE medical_records ADD CONSTRAINT pk_medical_records PRIMARY KEY (id);
+ALTER TABLE bills ADD CONSTRAINT pk_bills PRIMARY KEY (id);
+ALTER TABLE payments ADD CONSTRAINT pk_payments PRIMARY KEY (id);
+
+
+
