@@ -143,5 +143,7 @@ ALTER TABLE bills
 ADD CONSTRAINT fk_bills_appointment
 FOREIGN KEY (appointment_id) REFERENCES appointments(id);
 
-
+ALTER TABLE payments
+ADD CONSTRAINT fk_payments_bill
+FOREIGN KEY (bill_id) REFERENCES bills(id);
 
