@@ -154,3 +154,9 @@ CREATE INDEX idx_appointments_doctor ON appointments(doctor_id);
 CREATE INDEX idx_appointments_date ON appointments(appointment_date);
 CREATE INDEX idx_medical_patient ON medical_records(patient_id);
 CREATE INDEX idx_bills_patient ON bills(patient_id);
+
+
+-- Double appointment
+ALTER TABLE appointments
+ADD CONSTRAINT uq_doctor_schedule
+UNIQUE (doctor_id, appointment_date, appointment_time);
