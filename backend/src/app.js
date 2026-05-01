@@ -6,7 +6,6 @@ import userRoutes from "./modules/users/user.routes.js";
 import patientRoutes from "./modules/patients/patient.routes.js";
 import doctorRoutes from "./modules/doctors/doctor.routes.js";
 import appointmentRoutes from "./modules/appointments/appointment.routes.js";
-import billingRoutes from "./modules/billing/billing.routes.js";
 import medicalRecordRoutes from "./modules/medical-records/medicalRecord.routes.js";
 import notFound from "./middlewares/notFound.js";
 import errorHandler from "./middlewares/errorHandler.js";
@@ -37,7 +36,6 @@ app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/patients", patientRoutes);
 app.use("/api/v1/doctors", doctorRoutes);
 app.use("/api/v1/appointments", appointmentRoutes);
-app.use("/api/v1/bills", billingRoutes);
 app.use("/api/v1/medical-records", medicalRecordRoutes);
 
 // if no route matches, this middleware creates a clean 404 response.
