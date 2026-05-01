@@ -8,17 +8,16 @@ A web-based application designed to manage hospital operations including patient
 
 The **MediFlow System** is a full-stack web application developed to streamline and digitize hospital operations. It allows efficient management of:
 
-* Patient records
-* Appointment scheduling
-* Treatment processes
-* Billing system
-
+- Managing patient records
+- Scheduling appointments
+- Handling prescriptions
+- Managing hospital staff
+- Tracking medicine inventory
+- 
 ###  Target Users
 
 * Doctors
-* Nurses
-* Administrators
-* Receptionists
+* Staff
 * Patients
 
 ###  Purpose
@@ -29,14 +28,15 @@ The **MediFlow System** is a full-stack web application developed to streamline 
 
 ---
 
-##  Key Features
+## Key Features
 
-* Patient Registration
-* Appointment Booking
-* Staff Availability Checking
-* Medical Record Management
-* Report Generation
-
+- Role-based authentication (Doctor / Patient / Staff)
+- Appointment booking system
+- Patient record management
+- Prescription system
+- Medicine inventory tracking
+- Staff management dashboard
+- Feedback & rating system
 ---
 
 ##  Authors
@@ -58,7 +58,7 @@ The **MediFlow System** is a full-stack web application developed to streamline 
 ##  Folder Hierarchy
 
 ```
-hospital-patient-management-system/
+Mediflow-system/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
@@ -110,11 +110,7 @@ hospital-patient-management-system/
 | Staff       | Stores hospital staff data                       |
 | Appointments| Manages scheduling between patients and doctors  |
 | Admissions  | Tracks patient admissions and discharges         |
-| Wards       | Manages room and bed allocation                  |
-| LabTests    | Stores test requests                             |
-| LabReports  | Stores test results                              |
-| Billing     | Handles payments and invoices                    |
-| Inventory   | Tracks medicine stock                            |
+| Pharmacy    | Tracks medicine stock                            |
 
 ---
 
@@ -139,7 +135,7 @@ hospital-patient-management-system/
 ### 1️ Clone Repository
 
 ```bash
-git clone https://github.com/aliraza0321/hospital-patient-management-system.git
+git clone https://github.com/aliraza0321/Mediflow-system.git
 cd hospital-patient-management-system
 ```
 
@@ -203,7 +199,6 @@ npm start
 * Appointment Booking
 * Staff Management
 * Treatment Handling
-* Billing System
 
 ---
 
@@ -214,7 +209,6 @@ npm start
 | Login System   | In Progress | Authentication      |
 | Patient System | In Progress | Manage patient data |
 | Appointment    | In Progress | Scheduling          |
-| Billing System | Planned     | Payments            |
 
 ---
 
