@@ -1,8 +1,7 @@
 const ROLES = Object.freeze({
-  ADMIN: "admin",
   DOCTOR: "doctor",
   PATIENT: "patient",
-  RECEPTIONIST: "receptionist"
+  STAFF: "staff",
 });
 
-export default ROLES;
+module.exports = { ROLES };

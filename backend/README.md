@@ -1,114 +1,88 @@
+# MediFlow Express Backend
 
-# Mediflow System Backend
+Backend scaffolded around the frontend contract from `Mediflow-system-main/frontend`.
+The frontend has also been copied into `frontend/` unchanged so the full stack lives in one folder.
 
-This is the backend for Mediflow . It is built with node js and express and uses a modular structure to keep the code simple and organized.
+## Stack
 
-## features
+- Express
+- JavaScript (CommonJS)
+- JWT authentication
+- bcrypt password hashing
+- Layered architecture with controllers, services, repositories, and entities
 
-- role based users: admin doctor patient receptionist
-- jwt authentication
-- patient registration
-- doctor management
-- appointment management
-- billing and payments
-- medical records
-- memory mode for testing without a database
-
-## project structure
+## Project structure
 
 ```text
+frontend/
 src/
-  app.js
-  server.js
   config/
-  middlewares/
-  modules/
-  shared/
-  utils/
-database/
-  schema.sql
+  controllers/
+  core/
+  domain/
+  infrastructure/
+  repositories/
+  routes/
+  services/
 ```
 
-## how to run
+## Setup
 
-1. install dependencies
-
-```powershell
-npm.cmd install
+```bash
+npm install
+copy .env.example .env
+npm run dev
 ```
 
-2. create a `.env` file by copying `.env.example`
+In a second terminal:
 
-3. use this in `.env`
-
-```env
-PORT=5000
-NODE_ENV=development
-STORAGE_MODE=memory
-JWT_SECRET=myprojectsecret
-JWT_EXPIRES_IN=1d
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
-4. start the server
+## Default seed accounts
 
-```powershell
-npm.cmd run dev
-```
-
-5. test this route in browser or postman
+All seeded users share this password:
 
 ```text
-http://localhost:5000/api/v1/health
+Password123!
 ```
 
-## memory mode
+Accounts:
 
-this backend can run in memory mode so a real database is not required for now. data resets when the server restarts.
+- Doctor: `doctor@mediflow.com`
+- Doctor: `doctor2@mediflow.com`
+- Patient: `patient@mediflow.com`
+- Patient: `patient2@mediflow.com`
+- Staff: `staff@mediflow.com`
 
-## first routes to test
+## API coverage
 
-### health check
+Implemented routes include:
 
-`GET /api/v1/health`
+- `POST /api/auth/signup`
+- `POST /api/auth/login`
+- `POST /api/auth/forgot-password`
+- `GET /api/doctor/dashboard`
+- `GET /api/doctor/patients`
+- `GET /api/doctor/appointments`
+- `GET /api/patient/dashboard`
+- `GET /api/patient/appointments`
+- `GET /api/staff/dashboard`
+- `GET /api/doctors`
+- `GET /api/prescriptions`
+- `POST /api/prescriptions`
+- `POST /api/appointments`
+- `POST /api/rate-doctor`
+- `GET /api/admin/users`
+- `GET /api/support`
+- `GET /api/records`
+- `GET /api/medicines`
 
-### register patient
+## Notes
 
-`POST /api/v1/auth/register-patient`
-
-```json
-{
-  "fullName": "Ali Khan",
-  "email": "ali@example.com",
-  "password": "123456",
-  "phoneNumber": "03001234567",
-  "gender": "male",
-  "dateOfBirth": "2002-01-15",
-  "bloodGroup": "O+",
-  "address": "Karachi",
-  "emergencyContactName": "Ahmed Khan",
-  "emergencyContactPhone": "03007654321"
-}
-```
-
-### login
-
-`POST /api/v1/auth/login`
-
-```json
-{
-  "email": "ali@example.com",
-  "password": "123456"
-}
-```
-
-## how the code is organized
-
-- routes handle urls
-- controllers handle request and response
-- services contain business logic
-- repositories handle data access
-- middlewares handle shared logic like auth and errors
-
-## note
-
-the project is ready for sql integration later but currently runs in memory mode for easy testing and demo purposes (YES IRTAZA WE ARE WAITING FOR YOU)
+- The project currently uses an in-memory seeded data store so you can connect the frontend and test flows quickly.
+- The next upgrade path is replacing repositories with database-backed implementations without changing controller contracts.
+- The backend was designed to preserve the current UI contract rather than forcing frontend changes.

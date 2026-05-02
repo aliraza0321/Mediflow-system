@@ -1,30 +1,25 @@
 {
-  "name": "hospital-patient-management-backend",
+  "name": "newproject",
   "version": "1.0.0",
-  "description": "Node.js backend for a Hospital & Patient Management System.",
+  "description": "MediFlow backend built around the provided frontend contract",
   "main": "src/server.js",
-  "type": "module",
   "scripts": {
-    "dev": "node --watch src/server.js",
+    "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "check": "node --check src/server.js"
+    "test": "node --test"
   },
-  "keywords": [
-    "nodejs",
-    "express",
-    "hospital-management",
-    "oop",
-    "mysql"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2",
-    "morgan": "^1.10.0",
-    "mysql2": "^3.11.3"
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
