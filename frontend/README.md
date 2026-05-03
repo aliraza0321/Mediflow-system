@@ -87,7 +87,7 @@ frontend/
 
 ## Installation & Setup
 
-###  Navigate to frontend
+###  Navigate to frontend (could switch between memory mod and db mod)
 
 ```bash
 cd frontend
