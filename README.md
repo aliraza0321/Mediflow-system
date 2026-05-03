@@ -13,7 +13,7 @@ The **MediFlow System** is a full-stack web application developed to streamline 
 - Handling prescriptions
 - Managing hospital staff
 - Tracking medicine inventory
-- 
+  
 ###  Target Users
 
 * Doctors
