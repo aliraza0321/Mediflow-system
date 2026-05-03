@@ -202,29 +202,8 @@ npm start
 
 ---
 
-###  Implementation Status
 
-| Feature        | Status      | Description         |
-| -------------- | ----------- | ------------------- |
-| Login System   | In Progress | Authentication      |
-| Patient System | In Progress | Manage patient data |
-| Appointment    | In Progress | Scheduling          |
 
----
-
-##  Limitations
-
-### Current Limitations
-
-* No real-time notifications
-* Basic UI
-
-### Known Issues
-
-* Slow API responses
-* UI responsiveness needs improvement
-
----
 ##  ALL OOP PRINCIPALS FOLLOWED 
 
 ##  SOLID Principles
