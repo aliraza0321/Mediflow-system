@@ -296,10 +296,34 @@ npm start
 ---
 
 
+## Object-Oriented Programming (OOP) Principles
 
-##  ALL OOP PRINCIPALS FOLLOWED 
+The application is built around the four fundamental pillars of Object-Oriented Programming, ensuring data integrity and logical separation of code.
 
- Here is a more refined, elaborative, and highly professional version of the S.O.L.I.D. principles section, perfect for a high-quality `README.md`:
+### 1. Encapsulation
+**Concept:** Bundling data and the methods that operate on that data into a single unit (a class), while restricting direct access to some of the object's components.
+**How we followed it:** 
+Our classes strictly control their internal state. For example, the `UserRepository` encapsulates the `this.database` property. A Controller cannot reach in and manually alter `userRepository.database.users[0]`. Instead, the outside world must use the safe, public methods exposed by the class, such as `userRepository.create(user)` or `userRepository.findById(id)`. This prevents accidental data corruption and enforces strict data boundaries.
+
+### 2. Abstraction
+**Concept:** Hiding complex implementation details and showing only the essential features of the object.
+**How we followed it:** 
+Our Service layer acts as a powerful abstraction over complex business rules. When the `DoctorController` needs a list of a doctor's patients, it simply calls `this.doctorService.getAssignedPatients(doctorId)`. 
+The Controller has no idea *how* this works—it is completely abstracted away from the fact that the Service must fetch appointments, extract unique patient IDs, fetch patient records, verify patient existence, and map the final data structure. By hiding this complexity behind a simple method signature, our Controllers remain exceptionally clean and readable.
+
+### 3. Inheritance
+**Concept:** A mechanism where a new class derives properties and behaviors from an existing class.
+**How we followed it:** 
+While our architecture heavily favors Composition over Inheritance (using Dependency Injection) to avoid rigid class hierarchies, we utilize Inheritance exactly where it shines: Custom Error Handling. 
+Our `AppError` class uses the `extends` keyword to inherit from Node.js's built-in `Error` class (`class AppError extends Error`). This allows `AppError` to gain standard error behaviors (like capturing stack traces) while allowing us to add custom properties like HTTP `statusCode` and `details`.
+
+### 4. Polymorphism
+**Concept:** The ability to present the same interface for differing underlying forms (data types or classes).
+**How we followed it:** 
+In JavaScript, polymorphism is achieved seamlessly through "duck typing". Our Services expect a specific shape (methods) from the Repositories injected into them, rather than a strict class type. 
+This means we can pass a completely different database repository (e.g., a `PostgresUserRepository`) into the `DoctorService`. Because the new repository polymorphically implements the same expected methods (like `findById()`), the Service will execute perfectly without caring about the underlying form of the object it was given. Furthermore, our global Error Handler acts polymorphically by catching both standard `Error` instances and custom `AppError` instances, formatting the HTTP response dynamically based on the type of error it receives.
+
+
 
 
 ### S.O.L.I.D. Principles
