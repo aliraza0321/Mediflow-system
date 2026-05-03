@@ -4,7 +4,7 @@ class AppointmentController {
   }
 
   create = async (req, res) => {
-    const result = this.appointmentService.create(req.body, req.auth.sub);
+    const result = await this.appointmentService.create(req.body, req.auth.sub);
     return res.status(201).json(result);
   };
 }

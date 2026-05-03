@@ -3,7 +3,8 @@ const cors = require("cors");
 
 const { env } = require("./config/env");
 const { errorHandler } = require("./core/middleware/errorHandler");
-const { InMemoryDatabase } = require("./infrastructure/database/inMemoryDatabase");
+//const { InMemoryDatabase } = require("./infrastructure/database/inMemoryDatabase");
+const db = require("./infrastructure/database/mariaDb");
 const { UserRepository } = require("./repositories/UserRepository");
 const { AppointmentRepository } = require("./repositories/AppointmentRepository");
 const { PrescriptionRepository } = require("./repositories/PrescriptionRepository");
@@ -31,17 +32,17 @@ const { buildRoutes } = require("./routes");
 
 async function createApp() {
   const app = express();
-  const database = await InMemoryDatabase.build();
-
-  const userRepository = new UserRepository(database);
-  const appointmentRepository = new AppointmentRepository(database);
-  const prescriptionRepository = new PrescriptionRepository(database);
-  const ratingRepository = new RatingRepository(database);
-  const medicineRepository = new MedicineRepository(database);
-  const supportRepository = new SupportRepository(database);
+  //const database = await InMemoryDatabase.build();
+  //changed database to db ad udpated
+  const userRepository = new UserRepository(db);
+  const appointmentRepository = new AppointmentRepository(db);
+  const prescriptionRepository = new PrescriptionRepository(db);
+  const ratingRepository = new RatingRepository(db);
+  const medicineRepository = new MedicineRepository(db);
+  const supportRepository = new SupportRepository(db);
 
   const authService = new AuthService({
-    database,
+    database:db,
     userRepository,
     appointmentRepository,
   });
@@ -55,18 +56,18 @@ async function createApp() {
     appointmentRepository,
   });
   const appointmentService = new AppointmentService({
-    database,
+    database:db,
     userRepository,
     appointmentRepository,
   });
   const prescriptionService = new PrescriptionService({
-    database,
+    database:db,
     userRepository,
     appointmentRepository,
     prescriptionRepository,
   });
   const ratingService = new RatingService({
-    database,
+      database: db,
     appointmentRepository,
     ratingRepository,
   });

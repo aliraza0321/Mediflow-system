@@ -5,22 +5,26 @@ class RecordService {
     this.prescriptionRepository = prescriptionRepository;
   }
 
-  list() {
+  async list() {
+    const users = await this.userRepository.findAll();
+    const appointments = await this.appointmentRepository.findAll();
+    const prescriptions = await this.prescriptionRepository.findAll();
+
     return [
       {
         id: 1,
         type: "Users",
-        count: this.userRepository.findAll().length,
+        count: users.length,
       },
       {
         id: 2,
         type: "Appointments",
-        count: this.appointmentRepository.findAll().length,
+        count: appointments.length,
       },
       {
         id: 3,
         type: "Prescriptions",
-        count: this.prescriptionRepository.findAll().length,
+        count: prescriptions.length,
       },
     ];
   }

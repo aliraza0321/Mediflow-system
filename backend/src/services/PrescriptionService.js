@@ -10,14 +10,14 @@ class PrescriptionService {
     this.prescriptionRepository = prescriptionRepository;
   }
 
-  listForUser(auth) {
+  async listForUser(auth) {
     const prescriptions = auth.role === "doctor"
-      ? this.prescriptionRepository.findByDoctorId(auth.sub)
-      : this.prescriptionRepository.findByPatientId(auth.sub);
+      ? await this.prescriptionRepository.findByDoctorId(auth.sub)
+      : await this.prescriptionRepository.findByPatientId(auth.sub);
 
-    return prescriptions.map((prescription) => {
-      const patient = this.userRepository.findById(prescription.patientId);
-      const doctor = this.userRepository.findById(prescription.doctorId);
+    return Promise.all(prescriptions.map(async (prescription) => {
+      const patient = await this.userRepository.findById(prescription.patientId);
+      const doctor = await this.userRepository.findById(prescription.doctorId);
 
       return {
         id: prescription.id,
@@ -29,19 +29,19 @@ class PrescriptionService {
         dosage: prescription.dosage,
         createdAt: prescription.createdAt,
       };
-    });
+    }));
   }
 
-  create(payload, doctorId) {
+  async create(payload, doctorId) {
     ensureRequiredFields(payload, ["patientId", "medicine", "dosage"]);
 
-    const patient = this.userRepository.findById(payload.patientId);
+    const patient = await this.userRepository.findById(payload.patientId);
     if (!patient || patient.role !== "patient") {
       throw new AppError("Patient not found.", 404);
     }
 
-    const isAssignedPatient = this.appointmentRepository
-      .findByDoctorId(doctorId)
+    const isAssignedPatient = (await this.appointmentRepository
+      .findByDoctorId(doctorId))
       .some((appointment) => appointment.patientId === Number(payload.patientId));
 
     if (!isAssignedPatient) {
@@ -49,18 +49,17 @@ class PrescriptionService {
     }
 
     const prescription = new Prescription({
-      id: this.database.nextId("prescription"),
       patientId: Number(payload.patientId),
       doctorId,
       medicine: payload.medicine,
       dosage: payload.dosage,
     });
 
-    this.prescriptionRepository.create(prescription);
+    const createdPrescription = await this.prescriptionRepository.create(prescription);
 
     return {
       message: "Prescription created successfully.",
-      prescription,
+      prescription: createdPrescription,
     };
   }
 }

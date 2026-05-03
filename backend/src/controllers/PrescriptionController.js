@@ -5,12 +5,12 @@ class PrescriptionController {
 
   list = async (req, res) => {
     return res.status(200).json({
-      prescriptions: this.prescriptionService.listForUser(req.auth),
+      prescriptions: await this.prescriptionService.listForUser(req.auth),
     });
   };
 
   create = async (req, res) => {
-    const result = this.prescriptionService.create(req.body, req.auth.sub);
+    const result = await this.prescriptionService.create(req.body, req.auth.sub);
     return res.status(201).json(result);
   };
 }
