@@ -61,11 +61,48 @@ The **MediFlow System** is a full-stack web application developed to streamline 
 Mediflow-system/
 ├── frontend/
 │   ├── src/
+│   │   ├── api/
+│   │   │   └── api.js
 │   │   ├── components/
+│   │   │   ├── DoctorProfile.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── PatientProfile.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   └── StaffProfile.jsx
+│   │   ├── layout/
+│   │   │   └── MainLayout.jsx
 │   │   ├── pages/
-│   │   ├── services/
-│   │   └── App.jsx
-│   └── package.json
+│   │   │   ├── About.jsx
+│   │   │   ├── Appointments.jsx
+│   │   │   ├── BookAppointment.jsx
+│   │   │   ├── Contact.jsx
+│   │   │   ├── CreatePrescription.jsx
+│   │   │   ├── DoctorDashboard.jsx
+│   │   │   ├── Doctors.jsx
+│   │   │   ├── ForgotPassword.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── ManageUsers.jsx
+│   │   │   ├── Medicine.jsx
+│   │   │   ├── MyAppointments.jsx
+│   │   │   ├── PatientDashboard.jsx
+│   │   │   ├── Patients.jsx
+│   │   │   ├── Prescriptions.jsx
+│   │   │   ├── Profile.jsx
+│   │   │   ├── RateDoctor.jsx
+│   │   │   ├── Records.jsx
+│   │   │   ├── Signup.jsx
+│   │   │   ├── StaffDashboard.jsx
+│   │   │   └── Support.jsx
+│   │   ├── routes/
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── package.json
+│   ├── tailwind.config.js
+│   └── vite.config.js
 │
 ├── backend/
 │   ├── src/
