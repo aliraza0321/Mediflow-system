@@ -7,12 +7,15 @@ function PatientDashboard() {
     appointments: 0,
     reports: 0,
   });
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetchStats();
   }, []);
 
   const fetchStats = async () => {
+    setError("");
+
     try {
       const token = localStorage.getItem("token");
 
@@ -25,6 +28,11 @@ function PatientDashboard() {
       const data = await res.json();
       console.log("Patient Dashboard:", data);
 
+      if (!res.ok) {
+        setError(data.message || "Unable to load dashboard");
+        return;
+      }
+
       setStats({
         doctors: data.availableDoctors,
         appointments: data.totalAppointments,
@@ -33,6 +41,7 @@ function PatientDashboard() {
 
     } catch (err) {
       console.error(err);
+      setError("Unable to connect to dashboard service");
     }
   };
 
@@ -41,6 +50,8 @@ function PatientDashboard() {
       <h1 className="text-3xl font-bold text-blue-700 mb-6">
         Patient Dashboard
       </h1>
+
+      {error && <p className="text-red-600 mb-4">{error}</p>}
 
       <div className="grid md:grid-cols-3 gap-6">
 

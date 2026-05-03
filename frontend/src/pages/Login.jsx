@@ -5,9 +5,17 @@ function Login() {
     const [role, setRole] = useState("doctor");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleLogin = async () => {
+        if (!email.trim() || !password) {
+            alert("Please enter email and password");
+            return;
+        }
+
+        setIsLoading(true);
+
         try {
             const res = await fetch("http://localhost:5000/api/auth/login", {
                 method: "POST",
@@ -25,6 +33,11 @@ function Login() {
 
             console.log(data); // DEBUG (important)
 
+            if (!res.ok) {
+                alert(data.message || "Login failed");
+                return;
+            }
+
             // ✅ SAVE DATA
             localStorage.setItem("token", data.token);
             localStorage.setItem("role", data.user.role);
@@ -38,6 +51,8 @@ function Login() {
         } catch (error) {
             console.error("Login error:", error);
             alert("Login failed");
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -105,9 +120,10 @@ function Login() {
 
                 <button
                     onClick={handleLogin}
+                    disabled={isLoading}
                     className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
                 >
-                    Login as {role}
+                    {isLoading ? "Logging in..." : `Login as ${role}`}
                 </button>
 
                 <div className="mt-6 text-center space-y-2">

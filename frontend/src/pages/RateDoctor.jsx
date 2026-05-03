@@ -1,18 +1,29 @@
-﻿ import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function RateDoctor() {
-
   const { state } = useLocation();
   const navigate = useNavigate();
 
   const [rating, setRating] = useState(0);
+  const [isSaving, setIsSaving] = useState(false);
 
-  const doctor = state?.doctor;
+  const doctor = state?.doctor || state?.doctorName;
   const doctorId = state?.doctorId;
   const appointmentId = state?.appointmentId;
 
   const submitRating = async () => {
+    if (!doctorId || !appointmentId) {
+      alert("Please open this page from My Appointments.");
+      return;
+    }
+
+    if (rating < 1) {
+      alert("Please select a rating.");
+      return;
+    }
+
+    setIsSaving(true);
 
     try {
       const token = localStorage.getItem("token");
@@ -33,13 +44,19 @@ function RateDoctor() {
       const data = await res.json();
       console.log(data);
 
+      if (!res.ok) {
+        alert(data.message || "Unable to submit rating");
+        return;
+      }
+
       alert("Rating submitted successfully");
 
-      navigate("/home");
-
+      navigate("/myappointments");
     } catch (err) {
       console.error(err);
       alert("Error submitting rating");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -50,7 +67,7 @@ function RateDoctor() {
       </h1>
 
       <div className="flex gap-2 mb-4">
-        {[1,2,3,4,5].map((star) => (
+        {[1, 2, 3, 4, 5].map((star) => (
           <span
             key={star}
             onClick={() => setRating(star)}
@@ -65,9 +82,10 @@ function RateDoctor() {
 
       <button
         onClick={submitRating}
+        disabled={isSaving}
         className="bg-blue-600 text-white px-6 py-2 rounded"
       >
-        Submit Rating
+        {isSaving ? "Submitting..." : "Submit Rating"}
       </button>
     </div>
   );

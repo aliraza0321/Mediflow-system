@@ -1,11 +1,18 @@
-﻿function Appointments() {
+import { useEffect, useState } from "react";
+
+function Appointments() {
   const [appointments, setAppointments] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchAppointments();
   }, []);
 
   const fetchAppointments = async () => {
+    setLoading(true);
+    setError("");
+
     try {
       const token = localStorage.getItem("token");
 
@@ -18,16 +25,30 @@
       const data = await res.json();
       console.log("Appointments:", data);
 
-      // ⚠️ adjust based on backend response
+      if (!res.ok) {
+        setError(data.message || "Unable to load appointments");
+        setAppointments([]);
+        return;
+      }
+
       setAppointments(data.appointments || data);
     } catch (err) {
       console.error(err);
+      setError("Unable to connect to appointments service");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">Appointments</h1>
+
+      {loading && <p className="text-gray-500">Loading appointments...</p>}
+      {error && <p className="text-red-600">{error}</p>}
+      {!loading && !error && appointments.length === 0 && (
+        <p className="text-gray-500">No appointments found.</p>
+      )}
 
       <div className="grid gap-4">
         {appointments.map((a) => (
@@ -41,4 +62,5 @@
     </div>
   );
 }
+
 export default Appointments;

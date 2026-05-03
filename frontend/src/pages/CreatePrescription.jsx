@@ -1,11 +1,12 @@
 ﻿ 
  
- import { useLocation } from "react-router-dom";
+ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function CreatePrescription() {
 
   const { state } = useLocation();
+  const navigate = useNavigate();
 
   // 👇 patient data from navigation
   const patientName = state?.patientName;
@@ -16,9 +17,22 @@ function CreatePrescription() {
     medicine: "",
     dosage: "",
   });
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!patientId) {
+      alert("Please open this page from the Patients screen.");
+      return;
+    }
+
+    if (!form.medicine.trim() || !form.dosage.trim()) {
+      alert("Please enter medicine and dosage.");
+      return;
+    }
+
+    setIsSaving(true);
 
     try {
       const token = localStorage.getItem("token");
@@ -39,11 +53,20 @@ function CreatePrescription() {
       const data = await res.json();
       console.log("Prescription:", data);
 
+      if (!res.ok) {
+        alert(data.message || "Unable to create prescription");
+        return;
+      }
+
       alert("Prescription created successfully");
+      setForm({ medicine: "", dosage: "" });
+      navigate("/prescriptions");
 
     } catch (err) {
       console.error(err);
       alert("Error creating prescription");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -74,9 +97,10 @@ function CreatePrescription() {
 
       <button
         onClick={handleSubmit}
+        disabled={isSaving}
         className="bg-blue-600 text-white px-6 py-2 rounded"
       >
-        Save
+        {isSaving ? "Saving..." : "Save"}
       </button>
 
     </div>
