@@ -225,6 +225,7 @@ npm start
 * UI responsiveness needs improvement
 
 ---
+##  ALL OOP PRINCIPALS FOLLOWED 
 
 ##  SOLID Principles
 
