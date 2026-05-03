@@ -55,7 +55,7 @@ The frontend is a role-based web application that allows:
 
 ## Project Structure
 
-
+```
 frontend/
 ├── src/
 │   ├── api/
@@ -102,7 +102,7 @@ frontend/
 ├── tailwind.config.js
 └── vite.config.js
 
-
+```
 ---
 
 ##  Tech Stack
