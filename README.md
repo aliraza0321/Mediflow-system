@@ -136,7 +136,7 @@ Mediflow-system/
 
 ```bash
 git clone https://github.com/aliraza0321/Mediflow-system.git
-cd hospital-patient-management-system
+cd Mediflow
 ```
 
 ---
@@ -161,8 +161,8 @@ Create `.env` file in **backend** folder:
 PORT=3000
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=yourpassword
-DB_NAME=hospital_db
+DB_PASSWORD=
+DB_NAME=medicare
 ```
 
 ---
