@@ -73,12 +73,13 @@ Mediflow-system/
 │   │   ├── models/
 │   │   ├── routes/
 │   │   ├── services/
-│   │   └── config/
+│   │   ├── config/
+│   │   └──database/
+│   │         └── schema.sql
+|   │         └── queries.sql      
 │   └── package.json
 │
-├── database/
-│   └── schema.sql
-|   └── queries.sql         
+├   
 │
 └── README.md
 ```
