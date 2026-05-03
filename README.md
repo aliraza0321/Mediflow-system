@@ -404,15 +404,7 @@ POST /api/patients
 }
 ```
 
----
 
-##  Future Improvements
-
-* Real-time notifications
-* Better UI/UX
-* Role-based authentication
-
----
 
 ##  Resources
 
