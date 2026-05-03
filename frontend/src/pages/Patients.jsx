@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 function Patients() {
 
   const [patients, setPatients] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -11,6 +13,9 @@ function Patients() {
   }, []);
 
   const fetchPatients = async () => {
+    setLoading(true);
+    setError("");
+
     try {
       const token = localStorage.getItem("token");
 
@@ -23,10 +28,19 @@ function Patients() {
       const data = await res.json();
       console.log("Patients:", data);
 
+      if (!res.ok) {
+        setError(data.message || "Unable to load patients");
+        setPatients([]);
+        return;
+      }
+
       setPatients(data.patients || data);
 
     } catch (err) {
       console.error(err);
+      setError("Unable to connect to patients service");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -34,27 +48,31 @@ function Patients() {
     <div>
       <h1 className="text-2xl font-bold mb-6">Patients</h1>
 
+      {loading && <p className="text-gray-500">Loading patients...</p>}
+      {error && <p className="text-red-600">{error}</p>}
+      {!loading && !error && patients.length === 0 && (
+        <p className="text-gray-500">No assigned patients found.</p>
+      )}
+
       {patients.map((p) => (
         <div key={p.id} className="bg-white p-4 shadow rounded mb-3">
 
           <p><strong>{p.name}</strong></p>
           <p>Status: {p.status}</p>
 
-          {p.status === "admitted" && (
-            <button
-              onClick={() =>
-                navigate("/create-prescription", {
-                  state: {
-                    patientId: p.id,
-                    patientName: p.name,
-                  },
-                })
-              }
-              className="mt-2 bg-blue-600 text-white px-4 py-1 rounded"
-            >
-              Create Prescription
-            </button>
-          )}
+          <button
+            onClick={() =>
+              navigate("/create-prescription", {
+                state: {
+                  patientId: p.id,
+                  patientName: p.name,
+                },
+              })
+            }
+            className="mt-2 bg-blue-600 text-white px-4 py-1 rounded"
+          >
+            Create Prescription
+          </button>
 
         </div>
       ))}

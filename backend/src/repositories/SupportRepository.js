@@ -17,6 +17,29 @@ class SupportRepository {
     );
     return rows;
   }
+
+  async updateStatus(id, status) {
+    const [result] = await this.db.query(
+      "UPDATE support SET status = ? WHERE id = ?",
+      [status, Number(id)]
+    );
+    return result.affectedRows > 0;
+  }
+
+  async create({ patientId, staffId, issue }) {
+    const [result] = await this.db.query(
+      "INSERT INTO support (patient_id, staff_id, issue, status) VALUES (?, ?, ?, ?)",
+      [Number(patientId), Number(staffId), issue, "Pending"]
+    );
+
+    return {
+      id: result.insertId,
+      patientId: Number(patientId),
+      staffId: Number(staffId),
+      message: issue,
+      status: "Pending",
+    };
+  }
 }
 
 module.exports = { SupportRepository };

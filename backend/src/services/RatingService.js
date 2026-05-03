@@ -21,10 +21,6 @@ class RatingService {
       throw new AppError("You can only rate your own appointments.", 403);
     }
 
-    if (appointment.status !== "completed") {
-      throw new AppError("Only completed appointments can be rated.", 400);
-    }
-
     if (appointment.rated || await this.ratingRepository.findByAppointmentId(payload.appointmentId)) {
       throw new AppError("This appointment has already been rated.", 409);
     }
@@ -42,7 +38,10 @@ class RatingService {
     });
 
     const createdRating = await this.ratingRepository.create(rating);
-    appointment.rated = true;
+    await this.appointmentRepository.update({
+      ...appointment,
+      status: "completed",
+    });
 
     return {
       message: "Rating submitted successfully.",

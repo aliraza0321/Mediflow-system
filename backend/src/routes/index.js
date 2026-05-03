@@ -69,6 +69,18 @@ function buildRoutes(controllers) {
     authorize(ROLES.STAFF),
     asyncHandler(controllers.staff.getSupportTickets)
   );
+  router.post(
+    "/support",
+    authenticate,
+    authorize(ROLES.PATIENT),
+    asyncHandler(controllers.staff.createSupportTicket)
+  );
+  router.patch(
+    "/support/:id/resolve",
+    authenticate,
+    authorize(ROLES.STAFF),
+    asyncHandler(controllers.staff.resolveSupportTicket)
+  );
   router.get(
     "/records",
     authenticate,
@@ -80,6 +92,18 @@ function buildRoutes(controllers) {
     authenticate,
     authorize(ROLES.DOCTOR, ROLES.STAFF),
     asyncHandler(controllers.staff.getMedicines)
+  );
+  router.post(
+    "/medicines",
+    authenticate,
+    authorize(ROLES.STAFF),
+    asyncHandler(controllers.staff.createMedicine)
+  );
+  router.patch(
+    "/medicines/:id/stock",
+    authenticate,
+    authorize(ROLES.STAFF),
+    asyncHandler(controllers.staff.updateMedicineStock)
   );
 
   router.get("/doctors", authenticate, asyncHandler(controllers.doctor.getDirectory));
