@@ -81,8 +81,4 @@ Implemented routes include:
 - `GET /api/records`
 - `GET /api/medicines`
 
-## Notes
 
-- The project currently uses an in-memory seeded data store so you can connect the frontend and test flows quickly.
-- The next upgrade path is replacing repositories with database-backed implementations without changing controller contracts.
-- The backend was designed to preserve the current UI contract rather than forcing frontend changes.
