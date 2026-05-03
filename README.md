@@ -106,17 +106,72 @@ Mediflow-system/
 │
 ├── backend/
 │   ├── src/
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── services/
 │   │   ├── config/
-│   │   └──database/
-│   │         └── schema.sql
-|   │         └── queries.sql      
+│   │   │   ├── env.js
+│   │   │   └── roles.js
+│   │   ├── controllers/
+│   │   │   ├── AppointmentController.js
+│   │   │   ├── AuthController.js
+│   │   │   ├── DoctorController.js
+│   │   │   ├── PatientController.js
+│   │   │   ├── PrescriptionController.js
+│   │   │   ├── RatingController.js
+│   │   │   └── StaffController.js
+│   │   ├── core/
+│   │   │   ├── errors/
+│   │   │   │   └── AppError.js
+│   │   │   ├── middleware/
+│   │   │   │   ├── authenticate.js
+│   │   │   │   ├── authorize.js
+│   │   │   │   └── errorHandler.js
+│   │   │   └── utils/
+│   │   │       ├── asyncHandler.js
+│   │   │       └── validators.js
+│   │   ├── database/
+│   │   │   ├── Medicare.sql
+│   │   │   └── repareMedicare.sql
+│   │   ├── domain/
+│   │   │   └── entities/
+│   │   │       ├── Appointment.js
+│   │   │       ├── DoctorRating.js
+│   │   │       ├── Medicine.js
+│   │   │       ├── Prescription.js
+│   │   │       ├── SupportTicket.js
+│   │   │       └── User.js
+│   │   ├── infrastructure/
+│   │   │   ├── database/
+│   │   │   ├── inMemoryDatabase.js
+│   │   │   ├── mariaDb.js
+│   │   │   └── seedData.js
+│   │   ├── repositories/
+│   │   │   ├── AppointmentRepository.js
+│   │   │   ├── MedicineRepository.js
+│   │   │   ├── PrescriptionRepository.js
+│   │   │   ├── RatingRepository.js
+│   │   │   ├── SupportRepository.js
+│   │   │   └── UserRepository.js
+│   │   ├── routes/
+│   │   │   └── index.js
+│   │   ├── services/
+│   │   │   ├── AppointmentService.js
+│   │   │   ├── AuthService.js
+│   │   │   ├── DoctorService.js
+│   │   │   ├── MedicineService.js
+│   │   │   ├── PatientService.js
+│   │   │   ├── PrescriptionService.js
+│   │   │   ├── RatingService.js
+│   │   │   ├── RecordService.js
+│   │   │   ├── StaffService.js
+│   │   │   ├── SupportService.js
+│   │   │   └── UserPresenter.js
+│   │   ├── app.js
+│   │   └── server.js
+│   ├── test/
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── README.md
+│   ├── package-lock.json
 │   └── package.json
-│
-├   
 │
 └── README.md
 ```
