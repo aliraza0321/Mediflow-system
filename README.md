@@ -348,18 +348,38 @@ Our architecture rigorously adheres to the five S.O.L.I.D. principles to guarant
 
 *   **[D] Dependency Inversion Principle (DIP):** 
     High-level policy modules (like our Controllers and Services) absolutely do not depend on low-level detail modules (like raw Database connections or ORMs). Instead, both depend on abstractions. We invert the traditional flow of control by instantiating database connections at the very top level of the application (`app.js`) and **injecting** them downwards into the constructors of our classes. Because our business logic only interacts with these injected abstractions, our system is loosely coupled and exceptionally easy to mock and unit test.
-  ##  Design Patterns
 
-### MVC Pattern
 
-* Separates Model, View, Controller
+Here is the highly polished, beautifully formatted version of that specific structure. It places the Creational patterns (Factory and Singleton) first as requested, and features refined, professional explanations for maximum clarity:
 
-### Repository Pattern
 
-* Abstracts database operations
+##  Design Patterns
 
----
+To prevent tight coupling and ensure the codebase remains maintainable as it scales, we have heavily utilized several industry-standard design patterns. 
 
+### Creational Patterns 
+   
+*   **Singleton Pattern :** 
+    We strictly ensure that heavy, globally-shared resources most notably our database instance are created exactly once during the application lifecycle. By initializing the `database` at the root level (`app.js`) and injecting that exact same instance downward into all repositories, we naturally achieve an application-wide Singleton. This prevents memory leaks, eliminates connection pooling issues, and ensures all services remain perfectly in sync.
+    
+*   **Factory Method Pattern:** 
+    Complex object creation is centralized using Factory methods rather than standard constructors. For example, our `InMemoryDatabase.build()` method encapsulates the complex, asynchronous logic required to seed initial data before returning a fully initialized database instance. This keeps our class constructors strictly synchronous, predictable, and free of heavy initialization logic.
+    
+
+### Structural Patterns
+*   **Repository Pattern:** 
+    We completely abstract our data-access layer using this pattern. Instead of polluting our core business logic with raw database queries, our Services interact with Repositories through clean, predictable interfaces (e.g., `userRepository.findByEmail()`). This creates a hard architectural boundary, ensuring our application remains entirely agnostic to the underlying storage mechanism.
+    
+*   **Dependency Injection (DI) Pattern:** 
+    Instead of allowing classes to hardcode their own dependencies (e.g., calling `new UserRepository()` inside a Service), we "invert control" by injecting those dependencies directly into class constructors from the outside. This makes the entire system incredibly modular, loosely coupled, and allows us to effortlessly inject mock objects during unit testing to ensure complete isolation.
+
+### Behavioral & Architectural Patterns
+*   **Data Transfer Object (DTO) / Presenter Pattern:** 
+    To maintain a strict security boundary between our internal database schema and our public API, we utilize Presenters (e.g., `UserPresenter`). Before returning an internal entity to the client, it is passed through a Presenter to strip away highly sensitive information (such as password hashes) and format the payload perfectly for frontend consumption.
+    
+*   **Chain of Responsibility Pattern:** 
+    This pattern is heavily utilized via our Express.js middleware architecture. When an incoming HTTP request enters the application, it passes sequentially through a predefined chain of handler functions (CORS validation -> JSON Parsing -> Route Controllers -> Global Error Handler). Each link in the chain acts independently to either process the request, modify the payload, or safely pass it down to the next link.
+  
 ##  API Documentation
 
 ### Endpoints
