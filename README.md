@@ -44,7 +44,7 @@ The **MediFlow System** is a full-stack web application developed to streamline 
 * **Ali Raza (Team Lead)** – Frontend Development
   🔗 https://github.com/aliraza0321
 
-* **Abdul Rafay** – Backend Development
+* **Abdul Rafay** – Backend Development & API integration 
   🔗 https://github.com/rafay35349
 
 * **Abdul Ahad** – Frontend & Backend connection 
