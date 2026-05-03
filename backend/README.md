@@ -1,7 +1,7 @@
 # MediFlow Express Backend
 
 Backend scaffolded around the frontend contract from `Mediflow-system-main/frontend`.
-The frontend has also been copied into `frontend/` unchanged so the full stack lives in one folder.
+
 
 ## Stack
 
