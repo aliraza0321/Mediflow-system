@@ -10,6 +10,7 @@ Backend scaffolded around the frontend contract from `Mediflow-system-main/front
 - JWT authentication
 - bcrypt password hashing
 - Layered architecture with controllers, services, repositories, and entities
+- - **Database:** MySQL / MariaDB via `mysql2`
 
 ## Project structure
 
@@ -98,6 +99,17 @@ cd frontend
 npm install
 npm run dev
 ```
+## Database Setup
+
+```bash
+# Full schema + seed
+mysql -u root -p < src/database/Medicare.sql
+
+# Repair / re-migrate
+mysql -u root -p < src/database/repareMedicare.sql
+```
+
+To run without a database, the project includes an in-memory store (`inMemoryDatabase.js` + `seedData.js`) that works out of the box.
 
 ## Default seed accounts
 
@@ -137,5 +149,9 @@ Implemented routes include:
 - `GET /api/support`
 - `GET /api/records`
 - `GET /api/medicines`
+
+
+
+
 
 
