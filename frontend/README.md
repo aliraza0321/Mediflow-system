@@ -58,18 +58,49 @@ The frontend is a role-based web application that allows:
 
 frontend/
 ├── src/
-│ ├── components/  components (Sidebar, Navbar, etc.)
-│ ├── pages/ # Pages for Doctor, Patient, Staff
-│ │
-│ ├── layouts/ # Layouts (MainLayout)
-│ ├── routes/ # Routing logic
-│ ├── App.jsx # Main app component
-│ └── main.jsx # Entry point
-│
-├── public/ # Static files
+│   ├── api/
+│   │   └── api.js
+│   ├── components/
+│   │   ├── DoctorProfile.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── PatientProfile.jsx
+│   │   ├── Sidebar.jsx
+│   │   └── StaffProfile.jsx
+│   ├── layout/
+│   │   └── MainLayout.jsx
+│   ├── pages/
+│   │   ├── About.jsx
+│   │   ├── Appointments.jsx
+│   │   ├── BookAppointment.jsx
+│   │   ├── Contact.jsx
+│   │   ├── CreatePrescription.jsx
+│   │   ├── DoctorDashboard.jsx
+│   │   ├── Doctors.jsx
+│   │   ├── ForgotPassword.jsx
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── ManageUsers.jsx
+│   │   ├── Medicine.jsx
+│   │   ├── MyAppointments.jsx
+│   │   ├── PatientDashboard.jsx
+│   │   ├── Patients.jsx
+│   │   ├── Prescriptions.jsx
+│   │   ├── Profile.jsx
+│   │   ├── RateDoctor.jsx
+│   │   ├── Records.jsx
+│   │   ├── Signup.jsx
+│   │   ├── StaffDashboard.jsx
+│   │   └── Support.jsx
+│   ├── routes/
+│   │   └── ProtectedRoute.jsx
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── README.md
 ├── package.json
-├── vite.config.js
-└── tailwind.config.js
+├── tailwind.config.js
+└── vite.config.js
 
 
 ---
