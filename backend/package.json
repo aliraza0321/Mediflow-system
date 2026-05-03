@@ -1,7 +1,7 @@
 {
   "name": "newproject",
   "version": "1.0.0",
-  "description": "MediFlow backend built around the provided frontend contract",
+  "description": "MediFlow backend built around the provided frontend contract", // backend was built after frontend to avoid comptability issues
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
