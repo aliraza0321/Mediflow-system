@@ -281,9 +281,37 @@ npm start
 ```
 
  Runs on: http://localhost:5173
+ 
+## 🗄️ Database Setup (CMD / XAMPP)
+
+1. Start MySQL from XAMPP Control Panel
+   
+2. Start MySQL Command Line(Open CMD)
+```bash
+mysql -u root -p
+```
+3. Create Database:
+```bash
+CREATE DATABASE medicare;
+USE medicare;
+```
+4. Import SQL File:
+```bash
+cd Mediflow-system
+mysql -u root medicare < backend\src\database\Medicare.sql
+```
+
+
+
+
+Notes:
+- Default user: root
+- Default password: empty (XAMPP)
+- If error occurs, re-import SQL file
+
+
 
 ---
-
 ##  Features
 
 ### Core Features
