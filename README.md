@@ -1,3 +1,4 @@
+
  #  MediFlow System
 
 A web-based application designed to manage hospital operations including patient records, staff management, appointments, and treatments.
@@ -401,9 +402,7 @@ To prevent tight coupling and ensure the codebase remains maintainable as it sca
 *   **Dependency Injection (DI) Pattern:** 
     Instead of allowing classes to hardcode their own dependencies (e.g., calling `new UserRepository()` inside a Service), we "invert control" by injecting those dependencies directly into class constructors from the outside. This makes the entire system incredibly modular, loosely coupled, and allows us to effortlessly inject mock objects during unit testing to ensure complete isolation.
 
-### Behavioral & Architectural Patterns
-*   **Data Transfer Object (DTO) / Presenter Pattern:** 
-    To maintain a strict security boundary between our internal database schema and our public API, we utilize Presenters (e.g., `UserPresenter`). Before returning an internal entity to the client, it is passed through a Presenter to strip away highly sensitive information (such as password hashes) and format the payload perfectly for frontend consumption.
+
     
 *   **Chain of Responsibility Pattern:** 
     This pattern is heavily utilized via our Express.js middleware architecture. When an incoming HTTP request enters the application, it passes sequentially through a predefined chain of handler functions (CORS validation -> JSON Parsing -> Route Controllers -> Global Error Handler). Each link in the chain acts independently to either process the request, modify the payload, or safely pass it down to the next link.
